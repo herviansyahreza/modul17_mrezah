@@ -98,10 +98,11 @@ const verify = async(req, res, next) => {
         const{username}= req.body;
         const user = await db.query(`SELECT * FROM users where username=$1;`, [username])
         return res.status(200).json({
-            id: user.rows[0].id,
-            username: user.rows[0].username,
-            email: user.rows[0].email,
-            password: user.rows[0].password,
+            user
+            // id: user.rows[0].id,
+            // username: user.rows[0].username,
+            // email: user.rows[0].email,
+            // password: user.rows[0].password,
         })
     } catch (err) {
         console.log(err.message);
