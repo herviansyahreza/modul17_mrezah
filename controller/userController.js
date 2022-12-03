@@ -49,6 +49,7 @@ const login = async(req, res, next) => {
         id: user[0].id,
         password: password,
         email: user[0].email,
+        token: token
         },
         process.env.SECRET
         );
