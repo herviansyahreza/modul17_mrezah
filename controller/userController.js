@@ -45,7 +45,7 @@ const login = async(req, res, next) => {
     // 10. Generate token menggunakan jwt sign
         const token = jwt.sign(
         {
-        username: username,
+        username: user[0].username,
         id: user[0].id,
         password: password,
         email: user[0].email,
