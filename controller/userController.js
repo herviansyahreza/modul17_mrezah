@@ -25,9 +25,9 @@ const register = async(req, res, next) => {
 const login = async(req, res, next) => {
 
     // 9. komparasi antara password yang diinput oleh pengguna dan password yang ada didatabase
-    const { username, password } = req.body;
+    const { email, password } = req.body;
     try {
-    const data = await db.query(`SELECT * FROM users WHERE username= $1;`, [username]) //Verifying if the user exists in the database
+    const data = await db.query(`SELECT * FROM users WHERE username= $1;`, [email]) //Verifying if the user exists in the database
     const user = data.rows;
     if (user.length === 0) {
     res.status(400).json({
